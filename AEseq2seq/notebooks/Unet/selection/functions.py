@@ -22,7 +22,17 @@ def read_params_and_metrics(BASE_PATH, DATA_PATH, columns=None):
         data = data[columns]
     
     # Eliminar columnas específicas antes del merge
-    drop_cols = ["best_epoch", "train_Accuracy", "valid_Accuracy", "test_Accuracy"]
+    train = ["train_loss", "train_Accuracy", "train_Accuracy_seq"]
+
+    valid = ["valid_loss", "valid_Accuracy", "valid_Accuracy_seq"]
+
+    test = [
+        "test_loss",
+        "test_Accuracy",
+        "test_Accuracy_seq",
+    ]
+    other = ["name", "best_epoch"]
+    drop_cols = train + valid + test + other 
     cols = [col for col in data.columns if col not in drop_cols]
     
     # Fusionar `metrics` con `data`
