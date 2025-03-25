@@ -1,0 +1,2 @@
+run_name,test_file,arc_num_params,arc_features,arc_encoder_blocks,arc_latent_volume,arc_skip,arc_num_conv,train_loss,valid_loss,test_loss,valid_F1,train_F1,test_F1,train_Accuracy,valid_Accuracy,test_Accuracy,train_Accuracy_seq,valid_Accuracy_seq,test_Accuracy_seq
+paper_based_unet_cdhit-skip0,test_0.csv,37940,"[4, 8, 16, 32, 64]",4,512.0,0,2,0.1252835460855991,0.12778211293780073,0.12939174293444075,0.7852874804603771,0.8039404107233846,0.7882773827353565,0.8283547188159283,0.8229432397959183,0.8211880387931034,0.0,0.0,0.0
