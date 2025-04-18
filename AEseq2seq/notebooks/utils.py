@@ -1,6 +1,9 @@
 import pandas as pd
 from mlflow.tracking import MlflowClient
 
+NOTEBOOK_URI="sqlite:////home/guillermo/Documents/SINC/Research/RNA/AEseq2seq/mlruns.db"
+SINC_URI="sqlite:////home/gkulemeyer/Documents/Repos/AEseq2seq/mlruns.db"
+
 METRICS = [ 
     "train_loss",
     "valid_loss",
@@ -30,7 +33,7 @@ ARCHITECTURE = [
     "arc_embedding_dim",
     "arc_features",
     "arc_encoder_blocks",
-    "arc_num_params",
+    # "arc_num_params",
     "arc_initial_volume",
     "arc_latent_volume",
     "arc_num_conv",
@@ -107,11 +110,13 @@ def get_params_and_metrics(client, id, columns=None):
     # # Rellenar NaN con un valor neutro (opcional)
     # df.fillna("-", inplace=True)
     for file in ["train_file", "valid_file", "test_file"]:
-        df[file] = df[file].str.split("/").str[-1]
-
+        try:
+            df[file] = df[file].str.split("/").str[-1]
+        except:
+            print(f'falta {file}')
     if columns is not None:
         try:
             df = df[['run_name']+columns]
         except KeyError:
-            raise KeyError(f"Hay columnas que no están en df: {columns}, intente con las siguientes columnas: {df.columns}")
+            raise KeyError("Hay columnas que no están en df: ", columns, " intente con las siguientes columnas: ", df.columns)
     return df
