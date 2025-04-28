@@ -24,23 +24,23 @@ HYPERPARAMETERS = [
     "hyp_lr",
     "hyp_scheduler",
     "hyp_verbose",
-    "hyp_output_th",
-    "hyp_test_noise",
     'max_epochs',
+    # "train_swaps",
+    "test_swaps"
 ]
 
 ARCHITECTURE = [
     "arc_embedding_dim",
     "arc_features",
     "arc_encoder_blocks",
-    # "arc_num_params",
+    "arc_num_params",
     "arc_initial_volume",
     "arc_latent_volume",
     "arc_num_conv",
     "arc_pool_mode",
     "arc_up_mode",
     "arc_addition",
-    "arc_skip",
+    "arc_skip"
 ]
 
 DATASETS = ['exp', 'run', 'command', "train_file", "valid_file", "test_file", 'out_path','valid_split']
@@ -62,7 +62,7 @@ def get_params_and_metrics(client, id, columns=None):
     experiment_id = id  # Cambia por el que necesitas
 
     # Obtener todos los runs del experimento
-    runs = client.search_runs(experiment_ids=[experiment_id])
+    runs = client.search_runs(experiment_ids=[experiment_id], max_results=50000)
 
     # Crear un diccionario para agrupar runs por nombre
     grouped_runs = {}
