@@ -25,7 +25,7 @@ HYPERPARAMETERS = [
     "hyp_scheduler",
     "hyp_verbose",
     'max_epochs',
-    # "train_swaps",
+    "train_swaps",
     "test_swaps"
 ]
 
