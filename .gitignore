@@ -1,0 +1,4 @@
+# .gitignore
+DataAnalysis/data/rnadist_f_all.h5
+DataAnalysis/data/seqsim_f_all.h5
+*.h5
