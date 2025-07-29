@@ -1,0 +1,2 @@
+epoch,train_f1,train_loss,valid_f1,valid_f1_post,valid_loss
+0,0.7687,0.0066,0.5534,0.6308,0.0268
