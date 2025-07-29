@@ -1,0 +1,48 @@
+2025-07-26 03:12:24,076 - __main__.67 - INFO - Run on results/f_ArchiveII/ArchiveII_hc_200/5s/one-hot, with device cuda:0 and embeddings data/embeddings/one-hot_ArchiveII.h5
+2025-07-26 03:12:24,076 - __main__.68 - INFO - Training with file: data/archiveII_famfold/ArchiveII_hc_200/5s/train.csv
+2025-07-26 03:12:24,076 - __main__.70 - INFO - Validation enabled, using file: data/archiveII_famfold/ArchiveII_hc_200/5s/val.csv
+2025-07-26 03:12:24,076 - __main__.73 - INFO - Starting epoch 1
+2025-07-26 03:12:44,386 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:12:48,026 - __main__.86 - INFO - train_loss: 0.087 train_f1: 0.069 val_loss: 0.118 val_f1: 0.117
+2025-07-26 03:12:48,027 - __main__.73 - INFO - Starting epoch 2
+2025-07-26 03:13:08,075 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:13:11,525 - __main__.86 - INFO - train_loss: 0.048 train_f1: 0.208 val_loss: 0.114 val_f1: 0.207
+2025-07-26 03:13:11,525 - __main__.73 - INFO - Starting epoch 3
+2025-07-26 03:13:31,526 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:13:35,020 - __main__.86 - INFO - train_loss: 0.043 train_f1: 0.253 val_loss: 0.111 val_f1: 0.236
+2025-07-26 03:13:35,020 - __main__.73 - INFO - Starting epoch 4
+2025-07-26 03:13:54,862 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:13:58,304 - __main__.86 - INFO - train_loss: 0.042 train_f1: 0.274 val_loss: 0.110 val_f1: 0.269
+2025-07-26 03:13:58,304 - __main__.73 - INFO - Starting epoch 5
+2025-07-26 03:14:18,140 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:14:21,637 - __main__.86 - INFO - train_loss: 0.040 train_f1: 0.288 val_loss: 0.112 val_f1: 0.252
+2025-07-26 03:14:21,637 - __main__.73 - INFO - Starting epoch 6
+2025-07-26 03:14:41,202 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:14:44,618 - __main__.86 - INFO - train_loss: 0.040 train_f1: 0.295 val_loss: 0.108 val_f1: 0.279
+2025-07-26 03:14:44,618 - __main__.73 - INFO - Starting epoch 7
+2025-07-26 03:15:04,162 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:15:07,617 - __main__.86 - INFO - train_loss: 0.039 train_f1: 0.302 val_loss: 0.111 val_f1: 0.277
+2025-07-26 03:15:07,618 - __main__.73 - INFO - Starting epoch 8
+2025-07-26 03:15:27,289 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:15:30,714 - __main__.86 - INFO - train_loss: 0.038 train_f1: 0.310 val_loss: 0.108 val_f1: 0.275
+2025-07-26 03:15:30,714 - __main__.73 - INFO - Starting epoch 9
+2025-07-26 03:15:50,589 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:15:54,008 - __main__.86 - INFO - train_loss: 0.038 train_f1: 0.317 val_loss: 0.111 val_f1: 0.283
+2025-07-26 03:15:54,008 - __main__.73 - INFO - Starting epoch 10
+2025-07-26 03:16:13,477 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:16:16,914 - __main__.86 - INFO - train_loss: 0.038 train_f1: 0.320 val_loss: 0.114 val_f1: 0.259
+2025-07-26 03:16:16,914 - __main__.73 - INFO - Starting epoch 11
+2025-07-26 03:16:36,396 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:16:39,826 - __main__.86 - INFO - train_loss: 0.037 train_f1: 0.327 val_loss: 0.116 val_f1: 0.269
+2025-07-26 03:16:39,826 - __main__.73 - INFO - Starting epoch 12
+2025-07-26 03:16:59,558 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:17:03,017 - __main__.86 - INFO - train_loss: 0.036 train_f1: 0.334 val_loss: 0.109 val_f1: 0.299
+2025-07-26 03:17:03,017 - __main__.73 - INFO - Starting epoch 13
+2025-07-26 03:17:22,597 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:17:26,026 - __main__.86 - INFO - train_loss: 0.038 train_f1: 0.323 val_loss: 0.107 val_f1: 0.307
+2025-07-26 03:17:26,026 - __main__.73 - INFO - Starting epoch 14
+2025-07-26 03:17:45,704 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:17:49,125 - __main__.86 - INFO - train_loss: 0.036 train_f1: 0.336 val_loss: 0.113 val_f1: 0.280
+2025-07-26 03:17:49,125 - __main__.73 - INFO - Starting epoch 15
+2025-07-26 03:18:08,820 - __main__.79 - INFO - Running validation inference
+2025-07-26 03:18:12,265 - __main__.86 - INFO - train_loss: 0.036 train_f1: 0.338 val_loss: 0.107 val_f1: 0.280
