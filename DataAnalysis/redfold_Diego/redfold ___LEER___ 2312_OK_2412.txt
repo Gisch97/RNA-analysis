@@ -1,0 +1,78 @@
+=========================================
+
+
+241229 reinstalo el entorno en el servidor 74 y funciona
+
+como dice más abajo, es más simple:
+
+conda create -n redfold --file requirements00.txt python==3.7  
+conda activate redfold
+pip install scikit-learn munch torch
+
+con eso quedó andando en el servidor 74
+
+en el 49 tuve que eliminar torch del requirements00.txt, porque decía que no lo encontraba
+luego igual se instala con el pip de la línea siguiente
+(quedó instalado con -n redfold37)
+
+=========================================
+
+Datos:
+- conversión de formato y directorios: csv2dirs.ipynb (y para PDB csv2dirs_pdb.ipynb)
+- datos ya convertidos: k-fold_max512.zip (y para PDB pdb_k-fold_max512.zip)
+
+con los datos hago un tar.gz en lugar de tar.xz porque algunos linux no tienen las xz-utils instaladas
+
+
+=========================================
+Instalación, entrenamiento y prueba
+
+1. crear un entorno e instalar lo que se necesita:
+conda create -n redfold --file requirements00.txt <<<<<< ver abajo con python 3.7 sino no instala torch
+conda activate redfold
+pip install scikit-learn munch torch
+
+(requirements00.txt es una que simplifiqué yo porque torch no lo instalaba bien desde conda)
+
+
+conda create -n redfold --file requirements00.txt python==3.7  
+
+
+
+2. bajar redfold de github (o clonarlo) y ponerlo en el mismo directorio de run_train_test.sh, en un directorio que se llame redfold (y andentro directamente están los originales __main__.py, process_data.py, etc)
+(dejo acá una copia ya bajada redfold.0114a.tar.gz)
+
+tar xfz redfold.0114a.tar.gz
+crea redfold.0114a y entro en ese directorio para hacer el resto
+
+
+3. crear un directorio "data" vacío en el mismo directorio donde está run_train_test.sh
+
+4. cambiar el path a los datos en run_train_test.sh lineas 15 y 22
+(para pdb es run_train_test_pdb.sh)
+
+5. cambiar el path a python (también lineas 15 y 22) para que use el del environment redfold. En mi caso lo tengo instalado en:
+/home/dmilone/anaconda3/envs/redfold/bin/python
+
+5b. 
+copiar archivo redfold.py
+copiar config_default.json
+copiar mod_redense_default_from_pip_install.pt
+
+
+
+6. agregar permisos de ejecución:
+chmod a+x redfold.py 
+chmod a+x run_train_test.sh 
+(para pdb es run_train_test_pdb.sh)
+
+7. ejecutar:
+./run_train_test.sh <part> <epochs>
+(para pdb es run_train_test_pdb.sh)
+
+8. hay una notebook log2csv para postprocesar los .log y convertir las predicciones a CSV
+
+
+
+
+
