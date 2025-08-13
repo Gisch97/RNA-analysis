@@ -1,0 +1,3 @@
+2025-08-06 07:43:05,787 - __main__.47 - INFO - Run on results/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_400/16s/one-hot, with device cuda:0 and embeddings data/embeddings/one-hot_ArchiveII.h5
+2025-08-06 07:43:05,788 - __main__.48 - INFO - Testing with file: data/archiveII_famfold/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_400/16s/test.csv
+2025-08-06 07:43:07,521 - __main__.64 - INFO - test_loss: 0.049 test_f1: 0.153

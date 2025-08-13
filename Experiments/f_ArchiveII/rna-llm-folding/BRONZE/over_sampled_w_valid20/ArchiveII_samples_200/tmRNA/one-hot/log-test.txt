@@ -1,0 +1,3 @@
+2025-08-06 01:28:02,310 - __main__.47 - INFO - Run on results/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_200/tmRNA/one-hot, with device cuda:0 and embeddings data/embeddings/one-hot_ArchiveII.h5
+2025-08-06 01:28:02,310 - __main__.48 - INFO - Testing with file: data/archiveII_famfold/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_200/tmRNA/test.csv
+2025-08-06 01:28:10,798 - __main__.64 - INFO - test_loss: 0.042 test_f1: 0.186

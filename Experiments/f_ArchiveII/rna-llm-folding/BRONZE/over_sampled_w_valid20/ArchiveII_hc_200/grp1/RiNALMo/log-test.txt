@@ -1,0 +1,3 @@
+2025-08-06 16:50:20,273 - __main__.47 - INFO - Run on results/f_ArchiveII/over_sampled_w_valid20/ArchiveII_hc_200/grp1/RiNALMo, with device cuda:0 and embeddings data/embeddings/RiNALMo_ArchiveII.h5
+2025-08-06 16:50:20,273 - __main__.48 - INFO - Testing with file: data/archiveII_famfold/f_ArchiveII/over_sampled_w_valid20/ArchiveII_hc_200/grp1/test.csv
+2025-08-06 16:50:22,353 - __main__.64 - INFO - test_loss: 0.033 test_f1: 0.494

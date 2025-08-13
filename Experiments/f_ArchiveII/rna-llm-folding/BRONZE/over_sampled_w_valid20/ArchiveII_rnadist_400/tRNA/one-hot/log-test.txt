@@ -1,0 +1,3 @@
+2025-08-06 03:48:43,685 - __main__.47 - INFO - Run on results/f_ArchiveII/over_sampled_w_valid20/ArchiveII_rnadist_400/tRNA/one-hot, with device cuda:0 and embeddings data/embeddings/one-hot_ArchiveII.h5
+2025-08-06 03:48:43,685 - __main__.48 - INFO - Testing with file: data/archiveII_famfold/f_ArchiveII/over_sampled_w_valid20/ArchiveII_rnadist_400/tRNA/test.csv
+2025-08-06 03:48:45,567 - __main__.64 - INFO - test_loss: 0.141 test_f1: 0.365

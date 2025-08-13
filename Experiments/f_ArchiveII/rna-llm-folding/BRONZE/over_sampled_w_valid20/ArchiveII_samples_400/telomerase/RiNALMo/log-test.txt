@@ -1,0 +1,3 @@
+2025-08-07 03:35:12,735 - __main__.47 - INFO - Run on results/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_400/telomerase/RiNALMo, with device cuda:0 and embeddings data/embeddings/RiNALMo_ArchiveII.h5
+2025-08-07 03:35:12,735 - __main__.48 - INFO - Testing with file: data/archiveII_famfold/f_ArchiveII/over_sampled_w_valid20/ArchiveII_samples_400/telomerase/test.csv
+2025-08-07 03:35:14,148 - __main__.64 - INFO - test_loss: 0.047 test_f1: 0.109
