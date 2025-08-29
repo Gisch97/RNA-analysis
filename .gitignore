@@ -5,3 +5,4 @@ DataAnalysis/data/seqsim_f_all.h5
 **weights.pmt
 **.bpseq
 **.fasta
+*.pt

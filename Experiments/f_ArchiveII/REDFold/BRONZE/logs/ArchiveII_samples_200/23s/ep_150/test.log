@@ -1,0 +1,419 @@
+seq_name:23s_T.thermophilus_domain3
+seq_len:373
+current processing 1/15
+seq_name:23s_S.aureus_domain3
+seq_len:379
+seq_name:23s_H.pylori_domain4
+seq_len:337
+seq_name:23s_E.coli_domain4
+seq_len:364
+seq_name:23s_T.thermophilus_domain4
+seq_len:339
+seq_name:23s_S.aureus_domain6
+seq_len:255
+seq_name:23s_E.coli_domain6
+seq_len:262
+seq_name:23s_T.thermophilus_domain6
+seq_len:260
+seq_name:23s_B.subtilis_domain3
+seq_len:377
+seq_name:23s_B.subtilis_domain4
+seq_len:348
+seq_name:23s_H.pylori_domain6
+seq_len:242
+seq_name:23s_E.coli_domain3
+seq_len:372
+seq_name:23s_B.subtilis_domain6
+seq_len:258
+seq_name:23s_S.aureus_domain4
+seq_len:347
+seq_name:23s_H.pylori_domain3
+seq_len:380
+All_file_list:15
+Save RNA test data to data/test.pick
+use gpu: True
+Loading file:  data/test.pick
+Loading dataset Done!!!
+train.len=15
+FCDenseNet(
+  (features): Sequential(
+    (0): BasicConv2d(
+      (conv): Conv2d(146, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (1): BasicConv2d(
+      (conv): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+    (2): BasicConv2d(
+      (conv): Conv2d(32, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+    )
+  )
+  (down_dense): Module(
+    (block_0): DenseBlock(16, 4*4+16=32)(
+      (layer_0): DenseLayer(16, 4)(
+        (norm): BatchNorm2d(16, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(16, 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(20, 4)(
+        (norm): BatchNorm2d(20, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(20, 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(24, 4)(
+        (norm): BatchNorm2d(24, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(24, 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(28, 4)(
+        (norm): BatchNorm2d(28, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(28, 4, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_1): DenseBlock(32, 4*8+32=64)(
+      (layer_0): DenseLayer(32, 8)(
+        (norm): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(32, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(40, 8)(
+        (norm): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(40, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(48, 8)(
+        (norm): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(48, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(56, 8)(
+        (norm): BatchNorm2d(56, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(56, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_2): DenseBlock(64, 4*16+64=128)(
+      (layer_0): DenseLayer(64, 16)(
+        (norm): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(64, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(80, 16)(
+        (norm): BatchNorm2d(80, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(80, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(96, 16)(
+        (norm): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(96, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(112, 16)(
+        (norm): BatchNorm2d(112, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(112, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_3): DenseBlock(128, 4*32+128=256)(
+      (layer_0): DenseLayer(128, 32)(
+        (norm): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(160, 32)(
+        (norm): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(192, 32)(
+        (norm): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(224, 32)(
+        (norm): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(224, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (down_trans): Module(
+    (trans_0): TransitionDown(32, 32, dropout=0)(
+      (norm): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (trans_1): TransitionDown(64, 64, dropout=0)(
+      (norm): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(64, 64, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (trans_2): TransitionDown(128, 128, dropout=0)(
+      (norm): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(128, 128, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+    (trans_3): TransitionDown(256, 256, dropout=0)(
+      (norm): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(256, 256, kernel_size=(1, 1), stride=(1, 1), bias=False)
+      (pool): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    )
+  )
+  (middle): DenseBlock(256, 8*32+256=512)(
+    (layer_0): DenseLayer(256, 32)(
+      (norm): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(256, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_1): DenseLayer(288, 32)(
+      (norm): BatchNorm2d(288, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(288, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_2): DenseLayer(320, 32)(
+      (norm): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(320, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_3): DenseLayer(352, 32)(
+      (norm): BatchNorm2d(352, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(352, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_4): DenseLayer(384, 32)(
+      (norm): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(384, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_5): DenseLayer(416, 32)(
+      (norm): BatchNorm2d(416, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(416, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_6): DenseLayer(448, 32)(
+      (norm): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(448, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+    (layer_7): DenseLayer(480, 32)(
+      (norm): BatchNorm2d(480, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv): Conv2d(480, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+    )
+  )
+  (up_dense): Module(
+    (block_0): DenseBlock(256, 4*64=256)(
+      (layer_0): DenseLayer(256, 64)(
+        (norm): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(256, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(320, 64)(
+        (norm): BatchNorm2d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(320, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(384, 64)(
+        (norm): BatchNorm2d(384, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(384, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(448, 64)(
+        (norm): BatchNorm2d(448, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(448, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_1): DenseBlock(128, 4*32=128)(
+      (layer_0): DenseLayer(128, 32)(
+        (norm): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(128, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(160, 32)(
+        (norm): BatchNorm2d(160, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(160, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(192, 32)(
+        (norm): BatchNorm2d(192, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(192, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(224, 32)(
+        (norm): BatchNorm2d(224, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(224, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_2): DenseBlock(64, 4*16=64)(
+      (layer_0): DenseLayer(64, 16)(
+        (norm): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(64, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(80, 16)(
+        (norm): BatchNorm2d(80, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(80, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(96, 16)(
+        (norm): BatchNorm2d(96, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(96, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(112, 16)(
+        (norm): BatchNorm2d(112, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(112, 16, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+    (block_3): DenseBlock(32, 4*8=32)(
+      (layer_0): DenseLayer(32, 8)(
+        (norm): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(32, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_1): DenseLayer(40, 8)(
+        (norm): BatchNorm2d(40, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(40, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_2): DenseLayer(48, 8)(
+        (norm): BatchNorm2d(48, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(48, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+      (layer_3): DenseLayer(56, 8)(
+        (norm): BatchNorm2d(56, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv): Conv2d(56, 8, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      )
+    )
+  )
+  (up_trans): Module(
+    (trans_0): TransitionUp([256, 256] -> 256))(
+      (upconv): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): Conv2d(512, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU(inplace=True)
+      )
+      (concat): Concatenate()
+    )
+    (trans_1): TransitionUp([128, 128] -> 128))(
+      (upconv): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU(inplace=True)
+      )
+      (concat): Concatenate()
+    )
+    (trans_2): TransitionUp([64, 64] -> 64))(
+      (upconv): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU(inplace=True)
+      )
+      (concat): Concatenate()
+    )
+    (trans_3): TransitionUp([32, 32] -> 32))(
+      (upconv): Sequential(
+        (0): Upsample(scale_factor=2.0, mode=nearest)
+        (1): Conv2d(64, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (2): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (3): ReLU(inplace=True)
+      )
+      (concat): Concatenate()
+    )
+  )
+  (final): Conv2d(32, 1, kernel_size=(1, 1), stride=(1, 1))
+  (Norm): BatchNorm2d(1, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+)
+----------
+Epoch 0/1
+----------
+Phase test...
+Train data:15
+/home/gkulemeyer/Repos/REDfold/exec1/redfold/fold/data_generator.py:53: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  self.seq_hot= np.array([instance[2] for instance in self.data])
+/home/gkulemeyer/Repos/REDfold/exec1/redfold/fold/data_generator.py:54: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  self.data_y= np.array([instance[3] for instance in self.data])
+/home/gkulemeyer/Repos/REDfold/exec1/redfold/fold/data_generator.py:55: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  self.data_x= np.array([instance[4] for instance in self.data])
+/home/gkulemeyer/Repos/REDfold/exec1/redfold/fold/data_generator.py:56: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray.
+  self.data_z= np.array([instance[5] for instance in self.data])
+
+>23s_T.thermophilus_domain6
+AGGAGGCUUGAGGGGGGCUCUUCCUAGUACGAGAGGACCGGAAGGGACGCACCUCUGGUUUCCCAGCUGUCCCUCCAGGGGCAUAAGCUGGGUAGCCAUGUGCGGAAGGGAUAACCGCUGAAAGCAUCUAAGCGGGAAGCCCGCCCCAAGAUGAGGCCUCCCACGGCGUCAAGCCGGUAAGGACCCGGGAAGACCACCCGGUGGAUGGGCCGGGGGUGUAAGCGCCGCGAGGCGUUGAGCCGACCGGUCCCAAUCGUCCG
+...................(((....(...))).(((..........(((((...(((((.((((((((..((.....).)..).))))))).))))).)))))...........................(((((...))))).............(.....((((.....))))....)............................((((.(((.(.((((((....))))))).)))..)))))))........).
+
+>23s_T.thermophilus_domain4
+GCGGGAGAACCCUCGCCAAGGAACUCUGCAAGUUGGCCCCGUAACUUCGGGAGAAGGGGUGCUCCCUGGGGUGAUGAGCCCCGGGGAGCCGCAGUGAACAGGCUCUGGCGACUGUUUACCAAAAACACAGCUCUCUGCGAACUCGUAAGAGGAGGUAUAGGGAGCGACGCUUGCCCGGUGCCGGAAGGUCAAGGGGAGGGGUGCAAGCCCCGAACCGAAGCCCCGGUGAACGGCGGCCGUAACUAUAACGGUCCUAAGGUAGCGAAAUUCCUUGUCGGGUAAGUUCCGACCUGCACGAAAAGCGUAACGACCGGAGCGCUGUCUCGGCGAGGGACCCGG
+.(.((((..((((((((.((((())))((.......((((.(..((((((...).)))).((((((((((((.....))))))))))))....((.(((((......(...))))).))(..........).....((...(((....)))...)).......................(((((.............(((((....)))))...))))))..)))))........(((((.......))))).....))).......)))))..(((.(((..........))).)))...........................)))))))).....)
+
+>23s_S.aureus_domain4
+GCGAGCGAACUCUCGUUAAGGAACUCGGCAAAAUGACCCCGUAACUUCGGGAGAAGGGGUGCUCUUUAGGGUUAACGCCCAGAAGAGCCGCAGUGAAUAGGCCCAAGCGACUGUUUAUCAAAAACACAGGUCUCUGCUAAACCGUAAGGUGAUGUAUAGGGGCUGACGCCUGCCCGGUGCUGGAAGGUUAAGAGGAGUGGUUAGCUUCUGCGAAGCUACGAAUCGAAGCCCCAGUAAACGGCGGCCGUAACUAUAACGGUCCUAAGGUAGCGAAAUUCCUUGUCGGGUAAGUUCCGACCCGCACGAAAGGCGUAACGAUUUGGGCACUGUCUCAACGAGAGACUCGG
+.(.((....((((()((.((((())((.(.......((((....((...))....)))).((((((..((((....))))(()))))).................(..((((((.(.......).)))).)))..((...(((....)))...))............((((........))...))))(...(...((((((.((....))..))))))...)...)................(((((.......)))))....(....)))...)))))......(.....)..(...................)............((.).)).)))))))....
+
+>23s_B.subtilis_domain3
+AGAGGGGUGAGAAUCCCUCCACCGAAUGCCUAAGGGUUCCUGAGGAAGGCUCGUCCGCUCAGGGUUAGUCGGGACCUAAGCCGAGGCCGAAAGGCGUAGGCGAUGGACAACAGGUUGAUAUUCCUGUACCACCUCCUCACCAUUUGAGCAAUGGGGGGUCGCAGGAGGAUAGGGUAAGCGCGGUAUUGGAUAUCCGCGUCCAAGCAGUUAGGCUGGGAAAUAGGCAAAUCCGUUUCCCAUAAGGCUGAGCUGUGAUGGCGAGCGAAAUAUAGUAGCGAAGUUCCUGAUUCCACACUGCCAAGAAAAGCCUCUAGCGAGGUGAGAGGUGCCCGUACCGCAAACCGUCACAGGUAGGCGAGGAGAGAAUCCUAAGGUGA
+.(((((((....)))))))...(.....(.....)..(.........((.....)).......)...(((..((.....(((.(((((....))).).)))...(((..(((((.......()))))..((.....(..(((((..)..)))))..).)......)...........(((..(..........)..))).......()(.((.((((((((.)))...))))))))))).....)).).)(.....)(....)..................)).......................((((((.((...)).))))))..........................).......................
+
+>23s_H.pylori_domain3
+AGAUAUAUGAGAAUUGUAUCCGCCGUAAAUCUAAGGUUUCCUACGCGAUGGUCGUCAUCGUAGGGUUAGUCGGGUCCUAAGCCGAGUCCGAAAGGGGUAGGUGAUGGCAAAUUGGUUAAUAUUCCAAUACCGACUGUGGAGCGUGAUGGGGGGACGCAUAGGGUUAAGCGAGCUAGCUGAUGGAAGCGCUAGUCUAAGGGCGUAGAUUGGAGGGAAGGCAAAUCCACCUCUGUAUUUGAAACCCAAACAGGCUCUUUGAGUCCUUUUAGGACAAAGGGAGAAUCGCUGAUACCGUCGUGCCAAGAAAAGCCUCUAAGCAUAUCCAUAGUCGUCCGUACCGCAAACCGACACAGGUAGAUGAGAUGAGUAUUCUAAGGCGC
+.((((((.......))))))........(((...))).((((..(((((((...)))))))))))..........((...(((.(.(((....))).).)))...))...(((((........)))))...................(((......(...(((((..((..........((((..(((((.)).....)))))...((((........(((((.(......).))))).))))).......(((((().((((())))))))..))))))...........))))....)))).............................................................................
+
+>23s_T.thermophilus_domain3
+AAGAGGGUGAGAAUCCCUCUCGCCGUAAGCCCAAGGGUUCCUACGCAAUGGUCGUCAGCGUAGGGUUAGGCGGGACCUAAGGUGAAGCCGAAAGGCGUAGCCGAAGGGCAGCCGGUUAAUAUUCCGGCCCUUCCCGCAGGUGCGAUGGGGGGACGCUCUAGGCUAGGGGGACCGGAGCCAUGGACGAGCCCGGCCAGAAGCGCAGGGUGGGAGGUAGGCAAAUCCGCCUCCCAACAAGCUCUGCGUGGUGGGGAAGCCCGUACGGGUGACAACCCCCCGAAGCCAGGGAGCCAAGAAAAGCCUCUAAGCACAACCUGCGGGAACCCGUACCGCAAACCGACACAGGUGGGCGGGUGCAAGAGCACUCAGGCGC
+.((((((...(...)))))).....)...(((..)))(((((((((.......(((.))))))))...))).........(((.(.(((....))).).)))........(((((........)))))............................(...)....(......)....((..((................((((((((((((((((.((.....)))))))))).....)))))))).(.((((..((((....))))..)..))).).....))..))...............(...).......(((((..)......))))).......................................
+
+>23s_S.aureus_domain6
+AGGAAAUUUGAGAGGAGCUGUCCUUAGUACGAGAGGACCGGGAUGGACAUACCUCUGGUGUACCAGUUGUCGUGCCAACGGCAUAGCUGGGUAGCUAUGUGUGGACGGGAUAAGUGCUGAAAGCAUCUAAGCAUGAAGCCCCCCUCAAGAUGAGAUUUCCCAACUUCGGUUAUAAGAUCCCUCAAAGAUGAUGAGGUUAAUAGGUUCGAGGUGGAAGCAUGGUGACAUGUGGAGCUGACGAAUACUAAUCGAUCG
+......................(((.......)))((((.................(((.(((((((((((((....)))))..)))))).)))))...........(.....((.................)).....).......................................(((((.......)))))......)))).(.((.....(((((....)))))....))..)................
+
+>23s_H.pylori_domain4
+GUGAAAGAACUCUGGUUAAGGAACUCUGCAAACUAGCACCGUAAGUUCGCGAUAAGGUGUGCCACAGCGAUGUGGUCUCAGCAAAGAGUCCCUCCCGACUGUUUACCAAAAACACAGCACUUUGCCAACUCGUAAGAGGAAGUAUAAGGUGUGACGCCUGCCCGGUGCUCGAAGGUUAAGAGGAUGCGUCAGUCGCAAGAUGAAGCGUUGAAUUGAAGCCCGAGUAAACGGCGGCCGUAACUAUAACGGUCCUAAGGUAGCGAAAUUCCUUGUCGGUUAAAUACCGACCUGCAUGAAUGGCGUAACGAGAUGGGAGCUGUCUCAACCAGAGAUUCAG
+......((.((((((((.(((.(((((((.......((((..(.(....)..)..)))).((((((....))))))..(.))..))))).........(()(...........).)).......(..(((((...)))...)....(.......(((()....)))).......(.......(((((.((.(((....))))).))))).........).)...).......((((((.......))))))...(((.(......).))).((((((.....)))))).......................(.......)))))))))))).))...
+
+>23s_E.coli_domain6
+UGGAGAACUGAGGGGGGCUGCUCCUAGUACGAGAGGACCGGAGUGGACGCAUCACUGGUGUUCGGGUUGUCAUGCCAAUGGCACUGCCCGGUAGCUAAAUGCGGAAGAGAUAAGUGCUGAAAGCAUCUAAGCACGAAACUUGCCCCGAGAUGAGUUCUCCCUGACCCUUUAAGGGUCCUGAAGGAACGUUGAAGACGACGACGUUGAUAGGCCGGGUGUGUAAGCGCAGCGAUGCGUUGAGCUAACCGGUACUAAUGAACCG
+.((.........................................................(((((((.((............)).))))))............(......(..(((((...........)))))..)...........)....((((())..((((((...)))))).....)))))((.(.......).))........(((((..((.(.((((((....))))))).))...))))).........)..
+
+>23s_S.aureus_domain3
+AGACGGGUGAGAAUCCCGUCCACCGAUUGACUAAGGUUUCCAGAGGAAGGCUCGUCCGCUCUGGGUUAGUCGGGUCCUAAGCUGAGGCCGACAGGCGUAGGCGAUGGAUAACAGGUUGAUAUUCCUGUACCACCUAUAAUCGUUUUAAUCGAUGGGGGGACGCAGUAGGAUAGGCGAAGCGUGCGAUUGGAUUGCACGUCUAAGCAGUAAGGCUGAGUAUUAGGCAAAUCCGGUACUCGUUAAGGCUGAGCUGUGAUGGGGAGAAGACAUUGUGUCUUCGAGUCGUUGAUUUCACACUGCCGAGAAAAGCCUCUAGAUAGAAAAUAGGUGCCCGUACCGCAAACCGACACAGGUAGUCAAGAUGAGAAUUCUAAGGUGA
+.(((((((....).))))))((((.(((..........((........((((.(.))......))........(.(.........).)......................(((((........))))).((.(((...((((.......)))))))))....................((((((((.....))))))))...............................................................(((((((...))))))).....................).))..................))).)))).................................................
+
+>23s_E.coli_domain3
+AAGCGGGUGAAAAGCCCGCUCGCCGGAAGACCAAGGGUUCCUGUCCAACGUUAAUCGGGGCAGGGUGAGUCGACCCCUAAGGCGAGGCCGAAAGGCGUAGUCGAUGGGAAACAGGUUAAUAUUCCUGUACUUGGUGUUACUGCGAAGGGGGGACGGAGAAGGCUAUGUUGGCCGGGCGACGGUUGUCCCGGUUUAAGCGUGUAGGCUGGUUUUCCAGGCAAAUCCGGAAAAUCAAGGCUGAGGCGUGAUGACGAGGCACUACGGUGCUGAAGCAACAAAUGCCCUGCUUCCAGGAAAAGCCUCUAAGCAUCAGGUAACAUCAAAUCGUACCCCAAACCGACACAGGUGGUCAGGUAGAGAAUACCAAGGCGC
+.(((((((.....)))))))....((....((..))...)).......(.......((((..(.......)..))))...((()..(((....)))...)))........(((((........)))))...........(..(....)..)..................(((((((..........)))))))........((((((((((((())).).......)))))).....)))..............((((((..))))))..............((.(.((..(((.....)))..))....).))..........................................................
+
+>23s_B.subtilis_domain4
+UCGAGAGAACUCUCGUUAAGGAACUCGGCAAAAUGACCCCGUAACUUCGGGAGAAGGGGUGCUCUGUUAGGGUGCAAGCCCGAGAGAGCCGCAGUGAAUAGGCCCAGGCGACUGUUUAGCAAAAACACAGGUCUCUGCGAAGCCGUAAGGCGAAGUAUAGGGGCUGACGCCUGCCCGGUGCUGGAAGGUUAAGAGGAGCGCUUAGCGUAAGCGAAGGUGCGAAUUGAAGCCCCAGUAAACGGCGGCCGUAACUAUAACGGUCCUAAGGUAGCGAAAUUCCUUGUCGGGUAAGUUCCGACCCGCACGAAAGGCGCAACGAUCUGGGCGCUGUCUCAACGAGAGACUCGG
+.((((((..()))))((.....((...........(((((.(..((...))..).)))))((.......(())((....)).............(((...(........(()((()))........)))..))(.(((...(((....)))..)))...).........((.((.....)).))..(((.........(..(((((.).)))))..(((((.......)))...))........(((((.......)))))......(..........)...((((((...)))))))).))))).............................)).....).)....
+
+>23s_E.coli_domain4
+UUGAGAGAACUCGGGUGAAGGAACUAGGCAAAAUGGUGCCGUAACUUCGGGAGAAGGCACGCUGAUAUGUAGGUGAGGUCCCUCGCGGAUGGAGCUGAAAUCAGUCGAAGAUACCAGCUGGCUGCAACUGUUUAUUAAAAACACAGCACUGUGCAAACACGAAAGUGGACGUAUACGGUGUGACGCCUGCCCGGUGCCGGAAGGUUAAUUGAUGGGGUUAGCGCAAGCGAAGCUCUUGAUCGAAGCCCCGGUAAACGGCGGCCGUAACUAUAACGGUCCUAAGGUAGCGAAAUUCCUUGUCGGGUAAGUUCCGACCUGCACGAAUGGCGUAAUGAUGGCCAGGCUGUCUCCACCCGAGACUCAG
+....(((..(((((((((..(((((.((.((....(((((.(..((...))..).)))))............((((((..)))))).(.......................................((((((.....))))..))((((((((...(((....)))...))..))))))....(((..).....(((....(((........((((((.((....))..))))))........)))(()))....)).)))...............((...))............))((((....))))))))).......................))........).)))))))).)))..
+
+>23s_B.subtilis_domain6
+UGGAAAUUUGAGAGGAGCUGUCCUUAGUACGAGAGGACCGGGAUGGACGCACCGCUGGUGUACCAGUUGUUCUGCCAAGGGCAUCGCUGGGUAGCUAUGUGCGGACGGGAUAAGUGCUGAAAGCAUCUAAGCAUGAAGCCCCCCUCAAGAUGAGAUUUCCCAUUCCGCAAGGAAGUAAGAUCCCUGAAAGAUGAUCAGGUUGAUAGGUCUGAGGUGGAAGUGUGGCAACACAUGGAGCUGACAGAUACUAAUCGAUCG
+...................((((((.......)))))).................((((.(((((((...(((.....)))....))))).))))))....(............................).............................(.((((....))))).......(((((.......))))).............(((....(((((....)))))...)))...................
+
+>23s_H.pylori_domain6
+AGGAAAGUUGAGGAGAGCUGUCCCUAGUACGAGAGGACCGGGAUGGACGUGUCACUGGUGCACCAGUUGUCUGCCAAGAGCAUCGCUGGGUAGCACACACGGAUGUGAUAACUGCUGAAAGCAUCUAAGCAGGAACCAACUCCAAGAUAAACUUUCCCUGAAGCUCGCACAAAGACUAUGUGCUUGAUAGGGUAGAUGUGUGAGCGCAGUAAUGCGUUUAGCUGACUACUACUAAUAGAGCG
+..................(((((((........).....))))))...((.(..........(((((.)...............)))))......................(((((...........)))))..)).......(((.....)))............(.(...........).)..................(((((((....))))))).......................
+Epoch Loss:0.6938
+test finish.
