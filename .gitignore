@@ -6,3 +6,4 @@ DataAnalysis/data/seqsim_f_all.h5
 **.bpseq
 **.fasta
 *.pt
+**.ct
