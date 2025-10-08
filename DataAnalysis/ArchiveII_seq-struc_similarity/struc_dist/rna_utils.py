@@ -225,7 +225,7 @@ def filter_by_count_dict(corrs: dict, data_size=0, percentile=0.5, verbose=False
 # ╭──────────── 3.1 FILTRO POR PORCENTAJE Y TAMAÑO DEL DATASET SEGUN REPETICIONES ──────────────╮
 def filter_struc_by_count(data, data_size=0, percentile=0.5, verbose=False):
     M = data.copy()
-    np.fill_diagonal(M.values, 1)
+    np.fill_diagonal(M.values, np.nan)
     print(f"Initial shape: {M.shape[0]}^2")
     if (data_size != 0) & (M.shape[0] < data_size):
         print(
@@ -413,7 +413,7 @@ def plot_heatmaps_with_hist(
         ax = fig.add_subplot(gs[idx // n_cols, idx % n_cols])
         mat = order_matrix(corrs[fam], method=order_method)
         last_im = ax.imshow(mat.values, aspect="auto", cmap="viridis")
-        ax.set_title(f"{fam} (n={mat.shape[0]})", fontsize=13)
+        ax.set_title(f"{fam} ({mat.shape[0]} seqs.)", fontsize=13)
         ax.set_xticks([]), ax.set_yticks([])
 
     # ocultar celdas vacías
@@ -422,10 +422,10 @@ def plot_heatmaps_with_hist(
 
     # barra de color
     cax = fig.add_subplot(gs[:, -1])
-    fig.colorbar(last_im, cax=cax, label="Distancia")
+    fig.colorbar(last_im, cax=cax, label="Distance")
 
     fig.suptitle(
-        f"Heatmaps de distancias secuenciales por familias",
+        f"Structural distance between sequences by family",
         y=0.95,
         fontsize=14,
     )
@@ -452,16 +452,16 @@ def plot_histograms(
         vals = corrs[fam].values[np.triu_indices_from(corrs[fam], k=1)]
         bins = np.arange(0, vals.max() + bin_width, bin_width) if vals.size else [0, 1]
         ax.hist(vals, bins=bins, density=True, edgecolor="black", alpha=0.85)
-        ax.set_title(f"{fam} (n = {corrs[fam].shape[0]})", fontsize=13)
+        ax.set_title(f"{fam} ({corrs[fam].shape[0]} seqs.)", fontsize=13)
         ax.grid()
     for ax in axes.ravel()[len(fams) :]:
         ax.axis("off")
-    axes[0, 0].set_ylabel("Cuentas normalizadas")
-    axes[1, 0].set_ylabel("Cuentas normalizadas")
-    axes[2, 0].set_ylabel("Cuentas normalizadas")
-    axes[2, 0].set_xlabel("Distancia")
-    axes[2, 1].set_xlabel("Distancia")
-    axes[2, 2].set_xlabel("Distancia")
-    fig.suptitle("Distribución de pesos por familia", y=0.97)
+    axes[0, 0].set_ylabel("Counts")
+    axes[1, 0].set_ylabel("Counts")
+    axes[2, 0].set_ylabel("Counts")
+    axes[2, 0].set_xlabel("Distance")
+    axes[2, 1].set_xlabel("Distance")
+    axes[2, 2].set_xlabel("Distance")
+    fig.suptitle("Distance distribution by family", y=0.97)
     plt.tight_layout()
     plt.show()
