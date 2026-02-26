@@ -57,10 +57,12 @@ def build_inter_fam_corrs(corr: pd.DataFrame, meta: pd.DataFrame):
 def table_inter_fam(corrs: dict):
     strength = {}
     for f, dic in corrs.items():
-        strength[f] = {
-            fam: mat.values[np.triu_indices_from(mat, k=1)].mean()
-            for fam, mat in dic.items()
-        }
+        strength[f] = {}
+        for fam, mat in dic.items():
+            if fam != f: # INTER
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=0)].mean() 
+            else: # INTRA
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=1)].mean() 
     return strength
 
 
@@ -68,10 +70,12 @@ def table_inter_fam(corrs: dict):
 def table_max_inter_fam(corrs: dict):
     strength = {}
     for f, dic in corrs.items():
-        strength[f] = {
-            fam: mat.values[np.triu_indices_from(mat, k=1)].max()
-            for fam, mat in dic.items()
-        }
+        strength[f] = {}
+        for fam, mat in dic.items():
+            if fam != f:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=0)].max() 
+            else:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=1)].max() 
     return strength
 
 
@@ -79,11 +83,39 @@ def table_max_inter_fam(corrs: dict):
 def table_min_inter_fam(corrs: dict):
     strength = {}
     for f, dic in corrs.items():
-        strength[f] = {
-            fam: mat.values[np.triu_indices_from(mat, k=1)].min()
-            for fam, mat in dic.items()
-        }
-    return strength
+        strength[f] = {}
+        for fam, mat in dic.items():
+            if fam != f:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=0)].min() 
+            else:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=1)].min() 
+    return strength 
+
+
+
+def table_avg_min_intra_fam(corrs: dict):
+    strength = {}
+    for f, dic in corrs.items():
+        strength[f] = {}
+        for fam, mat in dic.items():
+            if fam != f:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=0)].min() 
+            else:
+                strength[f][fam] = mat.values[np.triu_indices_from(mat, k=1)].min() 
+    return strength 
+
+
+def table_avg_min_intra_fam(corrs: dict):
+    avg_min = {}
+    for f, dic in corrs.items():
+        avg_min[f] = {}
+        for fam, mat in dic.items():
+            matrix_values = mat.values.copy()
+            if fam == f: # INTRA WITHOUT DIAGONAL
+                np.fill_diagonal(matrix_values, np.nan)
+            mins_per_row = np.nanmin(matrix_values, axis=1)
+            avg_min[f][fam] = np.nanmean(mins_per_row)   
+    return avg_min
 
 
 # ╭──────────── 3. FILTRO POR UMBRAL Y TAMAÑO DE CLÚSTER ──────────────╮
@@ -244,9 +276,9 @@ def filter_struc_by_count(data, data_size=0, percentile=0.5, verbose=False):
             f"Data size set to {data_size}, ignoring percentile. Target percentile: {100*data_size/M.shape[0]}"
         )
 
-    min_val = M.values.min()
+    min_val = M.values.nanmin()
     while M.shape[0] > thr:
-        min_val = M.values.min()
+        min_val = M.values.nanmin()
         # Contar cuántas veces aparece max_val en cada fila
         count = (M == min_val).sum(axis=1).values
         drop_idx = np.argmax(count)
@@ -302,12 +334,16 @@ def family_means(corrs: dict):
     }
 
 
-def order_families(corrs: dict, ascending=True):
+def order_families(corrs: dict, ascending=True, fixed = False):
     """
     Lista de familias ordenadas por distancia media.
     """
     means = family_means(corrs)
-    return sorted(means, key=means.get, reverse=not ascending)
+    if fixed:
+        order = sorted(means, reverse=not ascending)
+    else:
+        order = sorted(means, key=means.get, reverse=not ascending)
+    return order
 
 
 def order_matrix(mat: pd.DataFrame, method="mean"):
@@ -383,6 +419,9 @@ def plot_heatmaps_with_hist(
     order_method="mean",
     n_cols=3,
     figsize_scale=(4, 3),
+    order_fams=False,
+    normalized = False,
+    title=None
 ):
     """
     Dibuja hasta n_fams heatmaps (ordenados por cohesión) con un histograma
@@ -395,7 +434,7 @@ def plot_heatmaps_with_hist(
     n_cols       : columnas del grid
     figsize_scale: tupla (ancho_por_col, alto_por_fila)
     """
-    ordered = order_families(corrs)
+    ordered = order_families(corrs, fixed=order_fams)
     n_rows = math.ceil(n_fams / n_cols)
 
     fig = plt.figure(
@@ -412,7 +451,13 @@ def plot_heatmaps_with_hist(
     for idx, fam in enumerate(ordered):
         ax = fig.add_subplot(gs[idx // n_cols, idx % n_cols])
         mat = order_matrix(corrs[fam], method=order_method)
-        last_im = ax.imshow(mat.values, aspect="auto", cmap="viridis")
+        if normalized:
+            mat /= 1.40625 # dist.max().max()
+        last_im = ax.imshow(mat.values,
+                            aspect="auto",
+                            cmap="viridis",
+                            vmin=0,
+                            vmax=1)
         ax.set_title(f"{fam} ({mat.shape[0]} seqs.)", fontsize=13)
         ax.set_xticks([]), ax.set_yticks([])
 
@@ -424,11 +469,18 @@ def plot_heatmaps_with_hist(
     cax = fig.add_subplot(gs[:, -1])
     fig.colorbar(last_im, cax=cax, label="Distance")
 
-    fig.suptitle(
-        f"Structural distance between sequences by family",
+    if title is not None:
+        fig.suptitle(
+        title,
         y=0.95,
-        fontsize=14,
+        fontsize=16,
     )
+    else:    
+        fig.suptitle(
+            f"Structural distance between sequences by family",
+            y=0.95,
+            fontsize=16,
+        )
     plt.tight_layout(rect=[0, 0, 0.96, 0.9])
     plt.show()
 

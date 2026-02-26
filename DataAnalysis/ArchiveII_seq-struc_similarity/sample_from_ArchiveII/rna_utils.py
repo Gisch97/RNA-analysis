@@ -385,3 +385,37 @@ def plot_histograms(
     fig.suptitle("Distribución de pesos por familia", y=0.97)
     plt.tight_layout()
     plt.show()
+
+
+
+# ╭────────────────── 2.2 STR POR FAMILIA ─────────────────────╮
+def table_inter_fam(corrs: dict):
+    strength = {}
+    for f, dic in corrs.items():
+        strength[f] = {
+            fam: mat.values[np.triu_indices_from(mat, k=1)].mean()
+            for fam, mat in dic.items()
+        }
+    return strength
+
+
+# ╭────────────────── 2.3 MAX POR FAMILIA ─────────────────────╮
+def table_max_inter_fam(corrs: dict):
+    strength = {}
+    for f, dic in corrs.items():
+        strength[f] = {
+            fam: mat.values[np.triu_indices_from(mat, k=1)].max()
+            for fam, mat in dic.items()
+        }
+    return strength
+
+
+# ╭────────────────── 2.3 MIN POR FAMILIA ─────────────────────╮
+def table_min_inter_fam(corrs: dict):
+    strength = {}
+    for f, dic in corrs.items():
+        strength[f] = {
+            fam: mat.values[np.triu_indices_from(mat, k=1)].min()
+            for fam, mat in dic.items()
+        }
+    return strength
